@@ -14,8 +14,6 @@ export class IconsComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
-    this.http.get(`${environment.BACKEND_SERVER}/protected/employee/1`).subscribe(resp=>{
-      console.log(resp)
-    });
+
   }
 }

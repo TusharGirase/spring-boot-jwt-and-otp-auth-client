@@ -1,5 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import Chart from 'chart.js';
+import { saveAs } from 'file-saver';
+import { FileDownloadService } from 'src/app/_services/file-download.service';
+import { environment } from 'src/environments/environment';
 
 // core components
 import {
@@ -22,7 +27,10 @@ export class DashboardComponent implements OnInit {
   public clicked: boolean = true;
   public clicked1: boolean = false;
 
+  constructor(private http: HttpClient, private router: Router) { }
+
   ngOnInit() {
+
 
     this.datasets = [
       [0, 20, 10, 30, 15, 40, 20, 60, 60],
@@ -45,10 +53,10 @@ export class DashboardComponent implements OnInit {
     var chartSales = document.getElementById('chart-sales');
 
     this.salesChart = new Chart(chartSales, {
-			type: 'line',
-			options: chartExample1.options,
-			data: chartExample1.data
-		});
+      type: 'line',
+      options: chartExample1.options,
+      data: chartExample1.data
+    });
   }
 
 
